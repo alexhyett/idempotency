@@ -12,7 +12,6 @@ namespace Idempotency.Controllers
     [Route("[controller]")]
     [Consumes("application/json")]
     [Produces("application/json")]
-    [Idempotent]
     public class PaymentController : ControllerBase
     {
 
@@ -35,6 +34,7 @@ namespace Idempotency.Controllers
         }
 
         [HttpPost]
+        [Idempotent]
         public IActionResult Post([FromBody] PaymentRequest request)
         {
             if (request is null)
