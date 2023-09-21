@@ -34,7 +34,7 @@ namespace Idempotency.Controllers
         }
 
         [HttpPost]
-        [Idempotent]
+        [Idempotent(ExpireHours = 24)]
         public IActionResult Post([FromBody] PaymentRequest request)
         {
             if (request is null)
